@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:slider_button/slider_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,35 +31,36 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SafeArea(
           child: Center(
         child: Column(
           children: <Widget>[
             Container(
-              width: 220,
-              height: 220,
+              width: 400,
+              height: 400,
               margin: const EdgeInsets.only(top: 100, right: 15),
               child: Image.asset(
                   "lib/image/WhatsApp Image 2023-09-16 at 14.44.45.jpg"),
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ), // ignore: sized_box_for_whitespace
             Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 const Text(
                   'Make A ',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 DefaultTextStyle(
                   style: const TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 22.0,
                     fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 0, 0, 0),
                   ),
                   child: AnimatedTextKit(
                     animatedTexts: [
@@ -84,33 +86,41 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const Text(
-                  'day for your fish',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  'Day for your fish',
+                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 50,
             ),
             SizedBox(
-              child: SizedBox(
-                width: 220,
-                height: 40,
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginPage()));
-                    },
-                    child: const Text(
-                      "Mulai",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      ),
-                    )),
+              child: Center(
+                child: SliderButton(
+                  action: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
+                  },
+                  label: const Text(
+                    'Geser untuk memulai',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
+                  icon: const Text(
+                    '𓆝',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 40,
+                    ),
+                  ),
+                  width: 243,
+                  radius: 100,
+                  buttonColor: const Color.fromARGB(255, 137, 208, 255),
+                  baseColor: const Color.fromARGB(255, 0, 0, 0),
+                ),
               ),
             ),
           ],
