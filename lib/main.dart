@@ -99,7 +99,12 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
+                  },
                   style: ElevatedButton.styleFrom(
                     elevation: 5,
                     padding: const EdgeInsets.symmetric(
@@ -121,6 +126,124 @@ class _HomePageState extends State<HomePage> {
               )
             ] // ),
                 ),
+          ),
+        ));
+  }
+}
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              SafeArea(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 250,
+                        height: 250,
+                        margin: const EdgeInsets.only(top: 100, right: 10),
+                        child: Image.asset(
+                            "lib/image/WhatsApp Image 2023-09-16 at 14.44.45.jpg"),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                          child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                          ),
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 240, 240, 240),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.only(left: 20),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Masukkan E-mail anda'),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                          child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 240, 240, 240),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.only(left: 20),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Masukkan Password anda'),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginPage()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 157, vertical: 20),
+                            backgroundColor: Colors.blueAccent,
+                            shadowColor: Colors.blueAccent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                          ),
+                          child: const Text(
+                            'Sign In',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ), // Tombol Mulai
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ));
   }
