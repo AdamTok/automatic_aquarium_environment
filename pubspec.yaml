@@ -1,4 +1,4 @@
-name: pakaniwak2
+name: smaq
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  slide_to_act: ^2.0.1
+  icons_plus: ^4.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -64,6 +66,7 @@ flutter:
   assets:
     - lib\animation\animation_lmm7e6qh.json
     - lib\image\WhatsApp Image 2023-09-16 at 14.44.45.jpg
+    - lib\image\5218646.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
