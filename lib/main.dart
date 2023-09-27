@@ -131,6 +131,8 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+///////////////////////////////////////////////////
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -156,7 +158,8 @@ class _LoginPageState extends State<LoginPage> {
                         height: 250,
                         margin: const EdgeInsets.only(top: 100, right: 10),
                         child: Image.asset(
-                            "lib/image/WhatsApp Image 2023-09-16 at 14.44.45.jpg"),
+                          "lib/image/WhatsApp Image 2023-09-16 at 14.44.45.jpg",
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
@@ -217,7 +220,7 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const LoginPage()));
+                                    builder: (context) => const SignupPage()));
                           },
                           style: ElevatedButton.styleFrom(
                             elevation: 10,
@@ -269,6 +272,10 @@ class _SignupPageState extends State<SignupPage> {
                 child: Center(
                   child: Column(
                     children: [
+                      SizedBox(
+                        child: Lottie.asset(
+                            "lib/animation/animation_lmm7e6qh.json"),
+                      ),
                       SizedBox(
                           child: Center(
                         child: Padding(
@@ -347,7 +354,7 @@ class _SignupPageState extends State<SignupPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const LoginPage()));
+                                    builder: (context) => const MonitorPage()));
                           },
                           style: ElevatedButton.styleFrom(
                             elevation: 10,
@@ -376,5 +383,87 @@ class _SignupPageState extends State<SignupPage> {
             ],
           ),
         ));
+  }
+}
+
+class MonitorPage extends StatefulWidget {
+  const MonitorPage({super.key});
+
+  @override
+  State<MonitorPage> createState() => _MonitorPageState();
+}
+
+class _MonitorPageState extends State<MonitorPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              'Monitoring',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              child: Stack(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.amberAccent,
+                    ),
+                    height: 90,
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              child: Stack(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.blueAccent,
+                    ),
+                    height: 90,
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              child: Stack(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.redAccent,
+                    ),
+                    height: 90,
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
