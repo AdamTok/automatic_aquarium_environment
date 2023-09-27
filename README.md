@@ -1,3 +1,2 @@
-# pakaniwak2
+# SMAQ
 
-test
