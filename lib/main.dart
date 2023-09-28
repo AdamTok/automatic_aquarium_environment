@@ -243,32 +243,32 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(
                         height: 150,
                       ),
-                      // SizedBox(
-                      //   child: Container(
-                      //     height: 63,
-                      //     decoration: const BoxDecoration(
-                      //       color: Colors.blueAccent,
-                      //       borderRadius: BorderRadius.only(
-                      //         topLeft: Radius.circular(12),
-                      //         topRight: Radius.circular(12),
-                      //       ),
-                      //     ),
-                      //     child: const Align(
-                      //       alignment: Alignment.center,
-                      //       child: Text(
-                      //         'Made and Developed by Adam Darmawansa for Tugas Akhir',
-                      //         style: TextStyle(
-                      //           color: Colors
-                      //               .white, // Ubah warna teks sesuai kebutuhan
-                      //           fontSize:
-                      //               10, // Sesuaikan ukuran font sesuai kebutuhan
-                      //           fontWeight: FontWeight
-                      //               .w400, // Sesuaikan gaya font sesuai kebutuhan
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ), // Tombol Mulai
+                      SizedBox(
+                        child: Container(
+                          height: 63,
+                          decoration: const BoxDecoration(
+                            color: Colors.blueAccent,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
+                            ),
+                          ),
+                          child: const Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'Made and Developed by Adam Darmawansa for Tugas Akhir',
+                              style: TextStyle(
+                                color: Colors
+                                    .white, // Ubah warna teks sesuai kebutuhan
+                                fontSize:
+                                    10, // Sesuaikan ukuran font sesuai kebutuhan
+                                fontWeight: FontWeight
+                                    .w400, // Sesuaikan gaya font sesuai kebutuhan
+                              ),
+                            ),
+                          ),
+                        ),
+                      ), // Tombol Mulai
                     ],
                   ),
                 ),
@@ -406,32 +406,32 @@ class _SignupPageState extends State<SignupPage> {
                     const SizedBox(
                       height: 50,
                     ),
-                    // SizedBox(
-                    //   child: Container(
-                    //     height: 63,
-                    //     decoration: const BoxDecoration(
-                    //       color: Colors.blueAccent,
-                    //       borderRadius: BorderRadius.only(
-                    //         topLeft: Radius.circular(12),
-                    //         topRight: Radius.circular(12),
-                    //       ),
-                    //     ),
-                    //     child: const Align(
-                    //       alignment: Alignment.center,
-                    //       child: Text(
-                    //         'Made and Developed by Adam Darmawansa for Tugas Akhir',
-                    //         style: TextStyle(
-                    //           color: Colors
-                    //               .white, // Ubah warna teks sesuai kebutuhan
-                    //           fontSize:
-                    //               10, // Sesuaikan ukuran font sesuai kebutuhan
-                    //           fontWeight: FontWeight
-                    //               .w400, // Sesuaikan gaya font sesuai kebutuhan
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
+                    SizedBox(
+                      child: Container(
+                        height: 63,
+                        decoration: const BoxDecoration(
+                          color: Colors.blueAccent,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
+                          ),
+                        ),
+                        child: const Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Made and Developed by Adam Darmawansa for Tugas Akhir',
+                            style: TextStyle(
+                              color: Colors
+                                  .white, // Ubah warna teks sesuai kebutuhan
+                              fontSize:
+                                  10, // Sesuaikan ukuran font sesuai kebutuhan
+                              fontWeight: FontWeight
+                                  .w400, // Sesuaikan gaya font sesuai kebutuhan
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
