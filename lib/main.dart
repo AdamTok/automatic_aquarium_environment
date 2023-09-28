@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-// import 'package:slide_to_act/slide_to_act.dart';
-// import 'package:slider_button/slider_button.dart';
-// import 'package:icons_plus/icons_plus.dart';
+import 'package:slide_digital_clock/slide_digital_clock.dart';
 
 void main() {
   runApp(const MyApp());
@@ -109,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                     elevation: 5,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 130, vertical: 20),
-                    backgroundColor: Colors.blueAccent,
+                    backgroundColor: const Color.fromARGB(255, 71, 181, 209),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -130,8 +128,6 @@ class _HomePageState extends State<HomePage> {
         ));
   }
 }
-
-///////////////////////////////////////////////////
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -226,8 +222,10 @@ class _LoginPageState extends State<LoginPage> {
                             elevation: 10,
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 157, vertical: 20),
-                            backgroundColor: Colors.blueAccent,
-                            shadowColor: Colors.blueAccent,
+                            backgroundColor:
+                                const Color.fromARGB(255, 71, 181, 209),
+                            shadowColor:
+                                const Color.fromARGB(255, 71, 181, 209),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
@@ -241,7 +239,36 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
-                      ), // Tombol Mulai
+                      ),
+                      const SizedBox(
+                        height: 150,
+                      ),
+                      // SizedBox(
+                      //   child: Container(
+                      //     height: 63,
+                      //     decoration: const BoxDecoration(
+                      //       color: Colors.blueAccent,
+                      //       borderRadius: BorderRadius.only(
+                      //         topLeft: Radius.circular(12),
+                      //         topRight: Radius.circular(12),
+                      //       ),
+                      //     ),
+                      //     child: const Align(
+                      //       alignment: Alignment.center,
+                      //       child: Text(
+                      //         'Made and Developed by Adam Darmawansa for Tugas Akhir',
+                      //         style: TextStyle(
+                      //           color: Colors
+                      //               .white, // Ubah warna teks sesuai kebutuhan
+                      //           fontSize:
+                      //               10, // Sesuaikan ukuran font sesuai kebutuhan
+                      //           fontWeight: FontWeight
+                      //               .w400, // Sesuaikan gaya font sesuai kebutuhan
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ), // Tombol Mulai
                     ],
                   ),
                 ),
@@ -268,116 +295,144 @@ class _SignupPageState extends State<SignupPage> {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              SafeArea(
-                child: Center(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        child: Lottie.asset(
-                            "lib/animation/animation_lmm7e6qh.json"),
-                      ),
-                      SizedBox(
-                          child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 240, 240, 240),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 20),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: 'Nama lengkap anda'),
-                              ),
+              Center(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      child:
+                          Lottie.asset("lib/animation/animation_lmm7e6qh.json"),
+                    ),
+                    SizedBox(
+                        child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 240, 240, 240),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Nama lengkap anda'),
                             ),
                           ),
                         ),
-                      )),
-                      const SizedBox(
-                        height: 25,
                       ),
-                      SizedBox(
-                          child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 240, 240, 240),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 20),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: 'Masukkan E-mail anda'),
-                              ),
+                    )),
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    SizedBox(
+                        child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 240, 240, 240),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Masukkan E-mail anda'),
                             ),
                           ),
                         ),
-                      )),
-                      const SizedBox(
-                        height: 25,
                       ),
-                      SizedBox(
-                          child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 240, 240, 240),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 20),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: 'Masukkan password anda'),
-                              ),
+                    )),
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    SizedBox(
+                        child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 240, 240, 240),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Masukkan password anda'),
                             ),
                           ),
                         ),
-                      )),
-                      const SizedBox(
-                        height: 25,
                       ),
-                      SizedBox(
+                    )),
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    SizedBox(
                         child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const MonitorPage()));
-                          },
-                          style: ElevatedButton.styleFrom(
-                            elevation: 10,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 157, vertical: 20),
-                            backgroundColor: Colors.blueAccent,
-                            shadowColor: Colors.blueAccent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MonitorPage()));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              elevation: 10,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 157, vertical: 20),
+                              backgroundColor:
+                                  const Color.fromARGB(255, 71, 181, 209),
+                              shadowColor:
+                                  const Color.fromARGB(255, 71, 181, 209),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
                             ),
-                          ),
-                          child: const Text(
-                            'Sign Up',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                      ) // Tombol Mulai
-                    ],
-                  ),
+                            child: const Text(
+                              'Sign Up',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            ))),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    // SizedBox(
+                    //   child: Container(
+                    //     height: 63,
+                    //     decoration: const BoxDecoration(
+                    //       color: Colors.blueAccent,
+                    //       borderRadius: BorderRadius.only(
+                    //         topLeft: Radius.circular(12),
+                    //         topRight: Radius.circular(12),
+                    //       ),
+                    //     ),
+                    //     child: const Align(
+                    //       alignment: Alignment.center,
+                    //       child: Text(
+                    //         'Made and Developed by Adam Darmawansa for Tugas Akhir',
+                    //         style: TextStyle(
+                    //           color: Colors
+                    //               .white, // Ubah warna teks sesuai kebutuhan
+                    //           fontSize:
+                    //               10, // Sesuaikan ukuran font sesuai kebutuhan
+                    //           fontWeight: FontWeight
+                    //               .w400, // Sesuaikan gaya font sesuai kebutuhan
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                  ],
                 ),
               ),
             ],
@@ -397,73 +452,118 @@ class _MonitorPageState extends State<MonitorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              'Monitoring',
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      body: SingleChildScrollView(
+          child: Column(children: [
+        SizedBox(
+          child: Container(
+            height: 100,
+            decoration: const BoxDecoration(
+              color: Colors.blueAccent,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(12),
+                bottomRight: Radius.circular(12),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              child: Stack(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 12),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.amberAccent,
-                    ),
-                    height: 90,
-                  )
-                ],
+            child: const Align(
+              alignment: Alignment.center,
+              child: Text(
+                "Halaman Monitoring",
+                style: TextStyle(
+                  color: Colors.white, // Ubah warna teks sesuai kebutuhan
+                  fontSize: 28, // Sesuaikan ukuran font sesuai kebutuhan
+                  fontWeight:
+                      FontWeight.bold, // Sesuaikan gaya font sesuai kebutuhan
+                ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              child: Stack(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 12),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.blueAccent,
-                    ),
-                    height: 90,
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              child: Stack(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 12),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.redAccent,
-                    ),
-                    height: 90,
-                  )
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
+        const SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+          child: Column(
+            children: [
+              DigitalClock(
+                digitAnimationStyle: Curves.easeInCubic,
+                is24HourTimeFormat: false,
+                areaDecoration: BoxDecoration(
+                    color: const Color.fromARGB(125, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(12)),
+                hourMinuteDigitTextStyle: const TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 40,
+                ),
+                secondDigitTextStyle: const TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15),
+                amPmDigitTextStyle: const TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15),
+              ),
+              const Text(
+                'Klik timer untuk setting alarm',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 450,
+        ),
+        SizedBox(
+          child: Column(children: [
+            Row(children: [
+              const SizedBox(
+                width: 12,
+              ),
+              Flexible(
+                child: Container(
+                  height: 180,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(50, 173, 173, 173),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(children: [
+                    const SizedBox(width: 10),
+                    Expanded(child: Image.asset("lib/image/5218646.png")),
+                  ]),
+                ),
+              ),
+              const SizedBox(
+                width: 11,
+              ),
+              Flexible(
+                child: Container(
+                  height: 180,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 2,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(50, 173, 173, 173),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(children: [
+                    const SizedBox(width: 2),
+                    Expanded(child: Image.asset("lib/image/5218646.png")),
+                  ]),
+                ),
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+            ])
+          ]),
+        )
+      ])),
     );
   }
 }
