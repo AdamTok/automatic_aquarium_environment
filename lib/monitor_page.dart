@@ -1,146 +1,174 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:slide_digital_clock/slide_digital_clock.dart';
 
-class MonitorPage extends StatefulWidget {
-  const MonitorPage({super.key});
+class MonitorPage extends StatelessWidget {
+  MonitorPage({super.key});
 
-  @override
-  State<MonitorPage> createState() => _MonitorPageState();
-}
+  final user = FirebaseAuth.instance.currentUser!;
 
-class _MonitorPageState extends State<MonitorPage> {
+  void logOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(children: [
-        SizedBox(
-          child: Container(
-            height: 100,
-            decoration: const BoxDecoration(
-              color: Colors.blueAccent,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(12),
-                bottomRight: Radius.circular(12),
+            SizedBox(
+              child: Container(
+                height: 100,
+                decoration: const BoxDecoration(
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(12),
+                    bottomRight: Radius.circular(12),
+                  ),
+                ),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      const Text(
+                        "Monitoring",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 2,
+                      ),
+                      Text(
+                        "Selamat datang ${user.email!}",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
-            child: const Align(
-              alignment: Alignment.center,
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    "Monitoring",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
+                  ElevatedButton(
+                    onPressed: () {
+                      logOut();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 10,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.4,
+                        vertical: 10,
+                      ),
+                      backgroundColor: const Color.fromARGB(255, 71, 181, 209),
+                      shadowColor: const Color.fromARGB(255, 71, 181, 209),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    child: const Text(
+                      'LogOut',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
                     ),
                   ),
-                  SizedBox(
-                    height: 2,
+                  DigitalClock(
+                    digitAnimationStyle: Curves.elasticOut,
+                    is24HourTimeFormat: false,
+                    areaDecoration: BoxDecoration(
+                        color: const Color.fromARGB(125, 255, 255, 255),
+                        borderRadius: BorderRadius.circular(12)),
+                    hourMinuteDigitTextStyle: const TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40,
+                    ),
+                    secondDigitTextStyle: const TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                    amPmDigitTextStyle: const TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
                   ),
-                  Text(
-                    "Anda bisa mengawasi kondisi akuarium kalian disini..",
+                  const Text(
+                    'Klik timer untuk setting alarm',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
+                      fontSize: 12,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        SizedBox(
-          child: Column(
-            children: [
-              DigitalClock(
-                digitAnimationStyle: Curves.elasticOut,
-                is24HourTimeFormat: false,
-                areaDecoration: BoxDecoration(
-                    color: const Color.fromARGB(125, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(12)),
-                hourMinuteDigitTextStyle: const TextStyle(
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 40,
-                ),
-                secondDigitTextStyle: const TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
-                amPmDigitTextStyle: const TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
-              ),
-              const Text(
-                'Klik timer untuk setting alarm',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(
-          height: 450,
-        ),
-        SizedBox(
-          child: Column(children: [
-            Row(children: [
-              const SizedBox(
-                width: 12,
-              ),
-              Flexible(
-                child: Container(
-                  height: 180,
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(50, 173, 173, 173),
-                    borderRadius: BorderRadius.circular(12),
+            const SizedBox(
+              height: 350,
+            ),
+            SizedBox(
+              child: Column(children: [
+                Row(children: [
+                  const SizedBox(
+                    width: 12,
                   ),
-                  child: Row(children: [
-                    const SizedBox(width: 10),
-                    Expanded(child: Image.asset("lib/image/5218646.png")),
-                  ]),
-                ),
-              ),
-              const SizedBox(
-                width: 11,
-              ),
-              Flexible(
-                child: Container(
-                  height: 180,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 2,
+                  Flexible(
+                    child: Container(
+                      height: 180,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(50, 173, 173, 173),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(children: [
+                        const SizedBox(width: 10),
+                        Expanded(child: Image.asset("lib/image/5218646.png")),
+                      ]),
+                    ),
                   ),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(50, 173, 173, 173),
-                    borderRadius: BorderRadius.circular(12),
+                  const SizedBox(
+                    width: 11,
                   ),
-                  child: Row(children: [
-                    const SizedBox(width: 2),
-                    Expanded(child: Image.asset("lib/image/5218646.png")),
-                  ]),
-                ),
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-            ])
-          ]),
-        )
-      ])),
+                  Flexible(
+                    child: Container(
+                      height: 180,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 2,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(50, 173, 173, 173),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(children: [
+                        const SizedBox(width: 2),
+                        Expanded(child: Image.asset("lib/image/5218646.png")),
+                      ]),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                ])
+              ]),
+            )
+          ])),
     );
   }
 }

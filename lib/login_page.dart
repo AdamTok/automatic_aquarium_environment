@@ -1,6 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:smaq/monitor_page.dart';
-import 'signup_page.dart';
+import 'package:smaq/component/textfield.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,6 +10,56 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  void logIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text, password: _passwordController.text);
+  }
+  // void logIn() async {
+  //   showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return const Center(
+  //           child: CircularProgressIndicator(),
+  //         );
+  //       });
+  //   try {
+  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //         email: _emailController.text, password: _passwordController.text);
+
+  //   } on FirebaseAuthException catch (e) {
+  //         Navigator.pop(context as BuildContext);
+  //     if (e.code == 'user-not-found') {
+  //       incorrectEmail();
+  //     } else if (e.code == 'wrong-password') {
+  //       incorrectPassword();
+  //     }
+  //   }
+  //   Navigator.pop(context);
+  // }
+
+  // // void incorrectEmail() {
+  //   showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return const AlertDialog(
+  //           title: Text('Email tidak ditemukan'),
+  //         );
+  //       });
+  // }
+
+  // void incorrectPassword() {
+  //   showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return const AlertDialog(
+  //           title: Text('Password salah'),
+  //         );
+  //       });
+  // }
+
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   SizedBox(
                     child: Container(
-                      height: 100,
+                      height: 120,
                       decoration: const BoxDecoration(
                         color: Colors.blueAccent,
                         borderRadius: BorderRadius.only(
@@ -38,22 +88,19 @@ class _LoginPageState extends State<LoginPage> {
                             SizedBox(
                               height: 30,
                             ),
-                            Text(
-                              "Sign In",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            Icon(
+                              Icons.lock,
+                              size: 50,
+                              color: Colors.white,
                             ),
                             SizedBox(
-                              height: 2,
+                              height: 7,
                             ),
                             Text(
-                              "Jangan lupa Sign In ya....",
+                              "Login terlebih dahulu....",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 10,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -73,62 +120,29 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 240, 240, 240),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Masukkan E-mail anda',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  MyTextField(
+                      controller: _emailController,
+                      hintText: 'Masukkan e-mail anda',
+                      obscureText: false),
                   const SizedBox(
                     height: 20,
                   ),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 240, 240, 240),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Masukkan Password anda',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  MyTextField(
+                      controller: _passwordController,
+                      hintText: 'Masukkan password anda',
+                      obscureText: true),
                   const SizedBox(
                     height: 20,
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const MonitorPage(),
-                        ),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const MonitorPage(),
+                      //   ),
+                      // );
+                      logIn();
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 10,
@@ -143,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     child: const Text(
-                      'Sign In',
+                      'Login',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -155,32 +169,17 @@ class _LoginPageState extends State<LoginPage> {
                     height:
                         15, // Mengurangi tinggi ini agar tampilan lebih baik di layar besar
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        'Belum punya akun? ',
+                      Text(
+                        'Klik untuk login',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 15,
+                          fontSize: 13,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignupPage(),
-                              ),
-                            );
-                          },
-                          child: const Text('Daftar sekarang',
-                              style: TextStyle(
-                                color: Colors.blueAccent,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                              )))
                     ],
                   ),
                 ],
