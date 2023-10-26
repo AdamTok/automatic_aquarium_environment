@@ -14,48 +14,6 @@ class _LoginPageState extends State<LoginPage> {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text, password: _passwordController.text);
   }
-  // void logIn() async {
-  //   showDialog(
-  //       context: context,
-  //       builder: (context) {
-  //         return const Center(
-  //           child: CircularProgressIndicator(),
-  //         );
-  //       });
-  //   try {
-  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //         email: _emailController.text, password: _passwordController.text);
-
-  //   } on FirebaseAuthException catch (e) {
-  //         Navigator.pop(context as BuildContext);
-  //     if (e.code == 'user-not-found') {
-  //       incorrectEmail();
-  //     } else if (e.code == 'wrong-password') {
-  //       incorrectPassword();
-  //     }
-  //   }
-  //   Navigator.pop(context);
-  // }
-
-  // // void incorrectEmail() {
-  //   showDialog(
-  //       context: context,
-  //       builder: (context) {
-  //         return const AlertDialog(
-  //           title: Text('Email tidak ditemukan'),
-  //         );
-  //       });
-  // }
-
-  // void incorrectPassword() {
-  //   showDialog(
-  //       context: context,
-  //       builder: (context) {
-  //         return const AlertDialog(
-  //           title: Text('Password salah'),
-  //         );
-  //       });
-  // }
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -136,12 +94,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const MonitorPage(),
-                      //   ),
-                      // );
                       logIn();
                     },
                     style: ElevatedButton.styleFrom(

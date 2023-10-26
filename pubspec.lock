@@ -5,10 +5,10 @@ packages:
     dependency: transitive
     description:
       name: _flutterfire_internals
-      sha256: "76c15c4167f820b74abcd8c6fc5e393e1ed5e1207a34e9b22953603e03b3ba6a"
+      sha256: "7bcb5c5d62b3907fb4a269c0f0843df46760d38e12829a715f2ff1fb492f19ef"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.9"
+    version: "1.3.10"
   animated_text_kit:
     dependency: "direct main"
     description:
@@ -81,6 +81,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  cloud_firestore:
+    dependency: "direct main"
+    description:
+      name: cloud_firestore
+      sha256: "7dd7e9505e4e895c87e7bc0c4cf49a2c0b0255fae900ab7fcac3c5daa9f422d5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.12.0"
+  cloud_firestore_platform_interface:
+    dependency: transitive
+    description:
+      name: cloud_firestore_platform_interface
+      sha256: f1a9436bc0d7f49e60df33b5eb872772733646d4f211516220a1f6006c8177f5
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.2"
+  cloud_firestore_web:
+    dependency: transitive
+    description:
+      name: cloud_firestore_web
+      sha256: "8df1e484d57f771242c2d8b3a534b921dfb0ba144a1cd441f23b1c7c4f33c3a1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.8.2"
   collection:
     dependency: transitive
     description:
@@ -89,6 +113,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.2"
+  community_charts_common:
+    dependency: transitive
+    description:
+      name: community_charts_common
+      sha256: "20697244c826df0545237ebe01d61caa96a2a2e4d23c6f88890441636a4d5220"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
+  community_charts_flutter:
+    dependency: transitive
+    description:
+      name: community_charts_flutter
+      sha256: ca5bd07337e162daee13c19679f602cd8b3f704520d242beeebbc2e312f84f89
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   convert:
     dependency: transitive
     description:
@@ -113,6 +153,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  d_chart:
+    dependency: "direct main"
+    description:
+      name: d_chart
+      sha256: "25383f0d0b71a3f540511573ac0603286b2d736ead55073d595b7f48764919e4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.6.2"
   device_frame:
     dependency: "direct main"
     description:
@@ -189,10 +237,10 @@ packages:
     dependency: transitive
     description:
       name: firebase_core
-      sha256: "57bba167105d2315d243a4524939406df688f38a5b6d7a4159382bbbe43cdd00"
+      sha256: "37299e4907391d7fac8c7ea059bb3292768cc07b72b6c6c777675cc58da2ef4d"
       url: "https://pub.dev"
     source: hosted
-    version: "2.19.0"
+    version: "2.20.0"
   firebase_core_platform_interface:
     dependency: transitive
     description:
@@ -280,6 +328,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.17"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
   js:
     dependency: transitive
     description:

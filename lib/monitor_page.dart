@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:slide_digital_clock/slide_digital_clock.dart';
+import 'package:smaq/component/livechart.dart';
 
 class MonitorPage extends StatelessWidget {
   MonitorPage({super.key});
@@ -65,31 +66,6 @@ class MonitorPage extends StatelessWidget {
             SizedBox(
               child: Column(
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      logOut();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      elevation: 10,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.of(context).size.width * 0.4,
-                        vertical: 10,
-                      ),
-                      backgroundColor: const Color.fromARGB(255, 71, 181, 209),
-                      shadowColor: const Color.fromARGB(255, 71, 181, 209),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: const Text(
-                      'LogOut',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
                   DigitalClock(
                     digitAnimationStyle: Curves.elasticOut,
                     is24HourTimeFormat: false,
@@ -120,8 +96,9 @@ class MonitorPage extends StatelessWidget {
                 ],
               ),
             ),
+            const RealTimeChart(),
             const SizedBox(
-              height: 350,
+              height: 10,
             ),
             SizedBox(
               child: Column(children: [
@@ -131,7 +108,7 @@ class MonitorPage extends StatelessWidget {
                   ),
                   Flexible(
                     child: Container(
-                      height: 180,
+                      height: 30,
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(50, 173, 173, 173),
@@ -139,7 +116,12 @@ class MonitorPage extends StatelessWidget {
                       ),
                       child: Row(children: [
                         const SizedBox(width: 10),
-                        Expanded(child: Image.asset("lib/image/5218646.png")),
+                        Expanded(
+                            child: Image.asset(
+                          "lib/image/5218646.png",
+                          height: 50,
+                          width: 50,
+                        )),
                       ]),
                     ),
                   ),
@@ -148,7 +130,7 @@ class MonitorPage extends StatelessWidget {
                   ),
                   Flexible(
                     child: Container(
-                      height: 180,
+                      height: 30,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 2,
                       ),
@@ -158,12 +140,42 @@ class MonitorPage extends StatelessWidget {
                       ),
                       child: Row(children: [
                         const SizedBox(width: 2),
-                        Expanded(child: Image.asset("lib/image/5218646.png")),
+                        Expanded(
+                            child: Image.asset(
+                          "lib/image/5218646.png",
+                          height: 50,
+                          width: 50,
+                        )),
                       ]),
                     ),
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 10,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      logOut();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 10,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.4,
+                        vertical: 10,
+                      ),
+                      backgroundColor: const Color.fromARGB(255, 71, 181, 209),
+                      shadowColor: const Color.fromARGB(255, 71, 181, 209),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    child: const Text(
+                      'LogOut',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
                 ])
               ]),
