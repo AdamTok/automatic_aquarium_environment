@@ -96,7 +96,37 @@ class MonitorPage extends StatelessWidget {
                 ],
               ),
             ),
-            const RealTimeChart(),
+            SizedBox(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SuhuDisplay(
+                        title: '',
+                      ),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  elevation: 5,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 130, vertical: 20),
+                  backgroundColor: const Color.fromARGB(255, 71, 181, 209),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: const Text(
+                  'Mulai',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ),
             const SizedBox(
               height: 10,
             ),
