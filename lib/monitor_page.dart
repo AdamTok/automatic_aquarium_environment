@@ -102,9 +102,7 @@ class MonitorPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SuhuDisplay(
-                        title: '',
-                      ),
+                      builder: (context) => const SuhuDisplay(),
                     ),
                   );
                 },

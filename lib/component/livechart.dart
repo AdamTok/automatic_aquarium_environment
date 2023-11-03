@@ -14,51 +14,51 @@
 // //       {'timestamp': 'D', 'suhu': 45},
 // //       {'timestamp': 'E', 'suhu': 67},
 // //     ];
-// //     return Container(
-// //       padding: const EdgeInsets.all(20),
-// //       child: Column(
-// //         children: [
-// //           const SizedBox(
-// //             height: 30,
-// //           ),
-// //           Container(
-// //             decoration: BoxDecoration(
-// //               borderRadius: BorderRadius.circular(20),
-// //               color: const Color.fromARGB(255, 255, 255, 255),
-// //             ),
-// //             child: Container(
-// //               padding: const EdgeInsets.all(10),
-// //               child: AspectRatio(
-// //                 aspectRatio: 2 / 1,
-// //                 child: DChartBarCustom(
-// //                   showDomainLine: true,
-// //                   showDomainLabel: true,
-// //                   showMeasureLine: true,
-// //                   showMeasureLabel: true,
-// //                   spaceMeasureLinetoChart: 10,
-// //                   spaceDomainLinetoChart: 10,
-// //                   radiusBar: const BorderRadius.only(
-// //                     topLeft: Radius.circular(12),
-// //                     topRight: Radius.circular(12),
-// //                   ),
-// //                   max: 100,
-// //                   valueAlign: Alignment.topCenter,
-// //                   listData: List.generate(suhu.length, (index) {
-// //                     Map item = suhu[index];
-// //                     return DChartBarDataCustom(
-// //                         value: item['suhu'].toDouble(),
-// //                         // toDouble kalo datanya berbentuk int
-// //                         label: item['timestamp'],
-// //                         shadowColor: Colors.black,
-// //                         color: item['suhu'] > 30
-// //                             ? Colors.red
-// //                             : (item['suhu'] < 20 ? Colors.blue : Colors.green),
-// //                         showValue: true);
-// //                   }),
-// //                 ),
-// //               ),
-// //             ),
-// //           ),
+//     return Container(
+//       padding: const EdgeInsets.all(20),
+//       child: Column(
+//         children: [
+//           const SizedBox(
+//             height: 30,
+//           ),
+//           Container(
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(20),
+//               color: const Color.fromARGB(255, 255, 255, 255),
+//             ),
+//             child: Container(
+//               padding: const EdgeInsets.all(10),
+//               child: AspectRatio(
+//                 aspectRatio: 2 / 1,
+//                 child: DChartBarCustom(
+//                   showDomainLine: true,
+//                   showDomainLabel: true,
+//                   showMeasureLine: true,
+//                   showMeasureLabel: true,
+//                   spaceMeasureLinetoChart: 10,
+//                   spaceDomainLinetoChart: 10,
+//                   radiusBar: const BorderRadius.only(
+//                     topLeft: Radius.circular(12),
+//                     topRight: Radius.circular(12),
+//                   ),
+//                   max: 100,
+//                   valueAlign: Alignment.topCenter,
+//                   listData: List.generate(suhu.length, (index) {
+//                     Map item = suhu[index];
+//                     return DChartBarDataCustom(
+//                         value: item['suhu'].toDouble(),
+//                         // toDouble kalo datanya berbentuk int
+//                         label: item['timestamp'],
+//                         shadowColor: Colors.black,
+//                         color: item['suhu'] > 30
+//                             ? Colors.red
+//                             : (item['suhu'] < 20 ? Colors.blue : Colors.green),
+//                         showValue: true);
+//                   }),
+//                 ),
+//               ),
+//             ),
+//           ),
 // //           const SizedBox(
 // //             height: 10,
 // //           ),
@@ -67,42 +67,42 @@
 // //               borderRadius: BorderRadius.circular(20),
 // //               color: const Color.fromARGB(255, 255, 255, 255),
 // //             ),
-// //             child: Container(
-// //               padding: const EdgeInsets.all(10),
-// //               child: AspectRatio(
-// //                 aspectRatio: 2 / 1,
-// //                 child: DChartBarCustom(
-// //                   showDomainLine: true,
-// //                   showDomainLabel: true,
-// //                   showMeasureLine: true,
-// //                   showMeasureLabel: true,
-// //                   spaceMeasureLinetoChart: 10,
-// //                   spaceDomainLinetoChart: 10,
-// //                   radiusBar: const BorderRadius.only(
-// //                     topLeft: Radius.circular(12),
-// //                     topRight: Radius.circular(12),
-// //                   ),
-// //                   max: 100,
-// //                   valueAlign: Alignment.topCenter,
-// //                   listData: List.generate(suhu.length, (index) {
-// //                     Map item = suhu[index];
-// //                     return DChartBarDataCustom(
-// //                         value: item['suhu'].toDouble(),
-// //                         // toDouble kalo datanya berbentuk int
-// //                         label: item['timestamp'],
-// //                         color: item['suhu'] > 30
-// //                             ? Colors.red
-// //                             : (item['suhu'] < 20 ? Colors.blue : Colors.green),
-// //                         showValue: true);
-// //                   }),
-// //                 ),
-// //               ),
-// //             ),
-// //           ),
-// //         ],
-// //       ),
-// //     );
-// //   }
+//   child: Container(
+//     padding: const EdgeInsets.all(10),
+//     child: AspectRatio(
+//       aspectRatio: 2 / 1,
+//       child: DChartBarCustom(
+//         showDomainLine: true,
+//         showDomainLabel: true,
+//         showMeasureLine: true,
+//         showMeasureLabel: true,
+//         spaceMeasureLinetoChart: 10,
+//         spaceDomainLinetoChart: 10,
+//         radiusBar: const BorderRadius.only(
+//           topLeft: Radius.circular(12),
+//           topRight: Radius.circular(12),
+//         ),
+//         max: 100,
+//         valueAlign: Alignment.topCenter,
+//         listData: List.generate(suhu.length, (index) {
+//           Map item = suhu[index];
+//           return DChartBarDataCustom(
+//               value: item['suhu'].toDouble(),
+//               // toDouble kalo datanya berbentuk int
+//               label: item['timestamp'],
+//               color: item['suhu'] > 30
+//                   ? Colors.red
+//                   : (item['suhu'] < 20 ? Colors.blue : Colors.green),
+//               showValue: true);
+//         }),
+//       ),
+//     ),
+//   ),
+// ),
+//       ],
+//     ),
+//   );
+// }
 // // }
 
 // import 'dart:async';
@@ -335,15 +335,12 @@
 //   }
 // }
 
-import 'dart:async';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:d_chart/d_chart.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class SuhuDisplay extends StatefulWidget {
-  const SuhuDisplay({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const SuhuDisplay({Key? key}) : super(key: key);
 
   @override
   State<SuhuDisplay> createState() => _SuhuDisplayState();
@@ -352,7 +349,6 @@ class SuhuDisplay extends StatefulWidget {
 class _SuhuDisplayState extends State<SuhuDisplay> {
   late DatabaseReference _dbref;
   String databasejson = '';
-  var newAge;
 
   @override
   void initState() {
@@ -364,83 +360,97 @@ class _SuhuDisplayState extends State<SuhuDisplay> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: Colors.transparent, // Background transparan
+        elevation: 0, // Menghilangkan bayangan di bawah AppBar
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            StreamBuilder(
-              stream: _dbref.onValue,
-              builder: (context, AsyncSnapshot snap) {
-                if (snap.hasData &&
-                    !snap.hasError &&
-                    snap.data.snapshot.value != null) {
-                  Map data = snap.data.snapshot.value;
-                  List item = [];
-                  data.forEach(
-                      (index, data) => item.add({"key": index, ...data}));
-                  return Expanded(
-                    child: ListView.builder(
-                      itemCount: item.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text("${item[index]['key']}"),
-                          subtitle: Text(item[index]['Data'].toString()),
-                          isThreeLine: true,
-                        );
-                      },
+        child: StreamBuilder(
+          stream: _dbref.onValue,
+          builder: (context, AsyncSnapshot snap) {
+            if (snap.hasData &&
+                !snap.hasError &&
+                snap.data.snapshot.value != null) {
+              Map data = snap.data.snapshot.value;
+              List item = [];
+              data.forEach(
+                (index, data) => item.add({"key": index, ...data}),
+              );
+              return ListView.builder(
+                itemCount: item.length,
+                itemBuilder: (context, index) {
+                  return Column(children: [
+                    Container(
+                      height: 150,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200], // Warna latar belakang abu-abu
+                        borderRadius:
+                            BorderRadius.circular(50), // Mengatur sudut kotak
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color.fromARGB(255, 52, 52, 52),
+                            offset: Offset(0, 3),
+                            blurRadius: 6, // Bayangan
+                          ),
+                        ],
+                      ),
+                      padding: const EdgeInsets.all(16),
+                      child: Column(children: <Widget>[
+                        const SizedBox(
+                          height: 13,
+                        ),
+                        Text(
+                          item[0]['Data'].toString(),
+                          style: const TextStyle(fontSize: 50),
+                        ),
+                        Text(
+                          "${item[0]['key']}",
+                          style: const TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(item[0]['Timestamp'].toString()),
+                      ]),
                     ),
-                  );
-                } else {
-                  return const Center(child: Text("No data"));
-                }
-              },
-            ),
-          ],
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      height: 200,
+                      width: 120,
+                      child: AspectRatio(
+                        aspectRatio: 1 / 1,
+                        child: DChartBarCustom(
+                          showDomainLabel: true,
+                          spaceDomainLinetoChart: 10,
+                          spaceBetweenItem: 10,
+                          radiusBar:
+                              const BorderRadius.all(Radius.circular(12)),
+                          max: 100,
+                          valueAlign: Alignment.topCenter,
+                          listData: List.generate(item.length, (index) {
+                            Map dataItem = item[index];
+                            return DChartBarDataCustom(
+                              value: dataItem['Data'].toDouble(),
+                              label: dataItem['Timestamp'],
+                              color: dataItem['Data'] > 30
+                                  ? Colors.red
+                                  : (dataItem['Data'] < 20
+                                      ? Colors.blue
+                                      : Colors.green),
+                              showValue: true,
+                            );
+                          }),
+                        ),
+                      ),
+                    ),
+                  ]);
+                },
+              );
+            } else {
+              return const Center(child: Text("No data"));
+            }
+          },
         ),
       ),
     );
-  }
-
-  Text buildText(String s) {
-    return Text(
-      s,
-      style: const TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-
-  void ageChange() {
-    /*
-       var subscription = FirebaseDatabase.instance
-      .reference()
-      .child('messages')
-      .Xxx
-      .listen((event) {
-        // process event
-      });
-
-      where Xxx is one of
-      onvalue
-      onChildAdded
-      onChildRemoved
-      onChildChanged
-
-      To end the subscription you can use
-      subscription.cancel();
-    */
-    _dbref
-        .child('Kelembaban')
-        .child('Data')
-        .onValue
-        .listen((DatabaseEvent event) {
-      Object? data = event.snapshot.value;
-      setState(() {
-        newAge = data;
-      });
-    });
   }
 }
