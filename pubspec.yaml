@@ -76,6 +76,11 @@ flutter:
     - lib\animation\animation_lmm7e6qh.json
     - lib\image\WhatsApp Image 2023-09-16 at 14.44.45-modified.png
     - lib\image\5218646.png
+    - lib\animation\51171.jpg
+    - lib\animation\8513.jpg
+    - lib\animation\pngtree-grey-light-bulb-with-wire-in-flat-design-vector-concept-vector-png-image_25529224.png
+    - lib\animation\pngtree-vector-illustration-of-a-yellow-light-bulb-with-wire-in-the-flat-design-style-vector-png-image_25529226.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
