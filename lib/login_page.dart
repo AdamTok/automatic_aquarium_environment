@@ -11,8 +11,80 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   void logIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text, password: _passwordController.text);
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _emailController.text, password: _passwordController.text);
+    } on FirebaseAuthException {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding: const EdgeInsets.only(bottom: 15, left: 15, right: 15),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+          ),
+          backgroundColor: Colors.red,
+          content: SizedBox(
+            height: 30,
+            child: Center(
+                child: Container(
+              padding: const EdgeInsets.only(top: 10),
+              child: const Row(
+                children: [
+                  Text(
+                    '         Periksa kembali Email dan Password anda  ',
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Icon(
+                    Icons.announcement_outlined,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+            )),
+          ),
+          duration:
+              const Duration(seconds: 2), // Durasi tampilan SnackBar (3 detik)
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding: const EdgeInsets.only(bottom: 15, left: 15, right: 15),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+          ),
+          backgroundColor: Colors.red,
+          content: SizedBox(
+            height: 30,
+            child: Center(
+                child: Container(
+              padding: const EdgeInsets.only(top: 10),
+              child: const Row(
+                children: [
+                  Text(
+                    '     Terjadi Kesalahan dalam Autentikasi  ',
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Icon(
+                    Icons.announcement_outlined,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+            )),
+          ),
+          duration:
+              const Duration(seconds: 2), // Durasi tampilan SnackBar (3 detik)
+        ),
+      );
+    }
   }
 
   final _emailController = TextEditingController();
@@ -31,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   SizedBox(
                     child: Container(
-                      height: 120,
+                      height: 90,
                       decoration: const BoxDecoration(
                         color: Colors.blueAccent,
                         borderRadius: BorderRadius.only(
@@ -48,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             Icon(
                               Icons.lock,
-                              size: 50,
+                              size: 40,
                               color: Colors.white,
                             ),
                             SizedBox(
@@ -58,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                               "Login terlebih dahulu....",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 13,
+                                fontSize: 10,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -97,9 +169,9 @@ class _LoginPageState extends State<LoginPage> {
                       logIn();
                     },
                     style: ElevatedButton.styleFrom(
-                      elevation: 10,
+                      elevation: 5,
                       padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.of(context).size.width * 0.4,
+                        horizontal: MediaQuery.of(context).size.width * 0.2,
                         vertical: 20,
                       ),
                       backgroundColor: const Color.fromARGB(255, 71, 181, 209),
@@ -120,19 +192,6 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height:
                         15, // Mengurangi tinggi ini agar tampilan lebih baik di layar besar
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Klik untuk login',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
                   ),
                 ],
               ),

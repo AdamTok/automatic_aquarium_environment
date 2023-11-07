@@ -243,6 +243,7 @@ class _MonitorPageState extends State<MonitorPage> {
                                           ? Colors.blue
                                           : Colors.green),
                                   showValue: true,
+                                  // splashColor: Colors.red
                                 );
                               }),
                             ),
@@ -407,7 +408,7 @@ class _MonitorPageState extends State<MonitorPage> {
                 },
               );
             } else {
-              return const Center(child: Text("No data"));
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),

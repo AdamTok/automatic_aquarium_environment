@@ -17,6 +17,7 @@ class MyTextField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Container(
+          height: 60,
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 240, 240, 240),
