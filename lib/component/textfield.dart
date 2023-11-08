@@ -14,17 +14,23 @@ class MyTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: SizedBox(
         child: Container(
-          height: 60,
-          padding: const EdgeInsets.all(10),
+          height: 40,
+          width: 230,
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 1),
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 240, 240, 240),
-            borderRadius: BorderRadius.circular(12),
+            color: const Color.fromARGB(255, 255, 255, 255),
+            borderRadius: BorderRadius.circular(7),
+            boxShadow: const [
+              BoxShadow(
+                color: Color.fromARGB(255, 70, 70, 70),
+                offset: Offset(1.5, 1.5),
+                blurRadius: 3, // Bayangan
+              ),
+            ],
           ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 20),
+          child: Center(
             child: TextField(
               controller: controller,
               obscureText: obscureText,

@@ -75,7 +75,14 @@ class _MonitorPageState extends State<MonitorPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Color.fromARGB(255, 97, 183, 254), Colors.white],
+        ),
+      ),
       child: Center(
         child: StreamBuilder(
           stream: _dbref.onValue,
@@ -91,30 +98,10 @@ class _MonitorPageState extends State<MonitorPage> {
               return ListView.builder(
                 itemCount: item.length,
                 itemBuilder: (context, index) {
-                  return SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
+                  return Center(
                     child: Column(children: [
                       const SizedBox(
-                        height: 30,
-                      ),
-                      Container(
-                        height: 27,
-                        width: 300,
-                        decoration: BoxDecoration(
-                            color: Colors.blueAccent[100],
-                            borderRadius: BorderRadius.circular(30)),
-                        child: const Center(
-                          child: Text(
-                            "Halaman Monitoring",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 35,
+                        height: 40,
                       ),
                       IntrinsicHeight(
                         child: Row(
@@ -127,7 +114,7 @@ class _MonitorPageState extends State<MonitorPage> {
                                 const Text(
                                   'Halo',
                                   style: TextStyle(
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       fontSize: 60,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -137,7 +124,7 @@ class _MonitorPageState extends State<MonitorPage> {
                                 Text(
                                   user.email!,
                                   style: const TextStyle(
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500),
                                 ),
@@ -156,7 +143,7 @@ class _MonitorPageState extends State<MonitorPage> {
                             ),
                             Container(
                               height: 50,
-                              width: 80,
+                              width: 90,
                               decoration: BoxDecoration(
                                 color: const Color.fromARGB(255, 255, 255,
                                     255), // Warna latar belakang abu-abu
@@ -236,13 +223,12 @@ class _MonitorPageState extends State<MonitorPage> {
                                 return DChartBarDataCustom(
                                   value: dataItem['Suhu'].toDouble(),
                                   // label: dataItem['Timestamp'],
-                                  label: dataItem['Timestamp'],
+                                  label: '${dataItem['Suhu']} °C',
                                   color: dataItem['Suhu'] >= 30
                                       ? Colors.red
                                       : (dataItem['Suhu'] <= 20
                                           ? Colors.blue
                                           : Colors.green),
-                                  showValue: true,
                                   // splashColor: Colors.red
                                 );
                               }),
@@ -301,19 +287,22 @@ class _MonitorPageState extends State<MonitorPage> {
                                         : [
                                             const BoxShadow(
                                                 color: Color.fromARGB(
-                                                    255, 147, 189, 199),
-                                                offset: Offset(3, 3),
-                                                blurRadius: 4,
+                                                    255, 121, 121, 121),
+                                                offset: Offset(2, 2),
+                                                blurRadius: 2,
                                                 spreadRadius: 1)
                                           ]),
                                 child: Center(
                                   child: Text(
-                                    isButtonPressedServo ? "Feeding" : "Feed",
+                                    isButtonPressedServo
+                                        ? "Feeding..."
+                                        : "Feed",
                                     style: TextStyle(
                                         color: isButtonPressedServo
                                             ? Colors.green
                                             : Colors.orange,
-                                        fontSize: 20),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ),
@@ -408,7 +397,11 @@ class _MonitorPageState extends State<MonitorPage> {
                 },
               );
             } else {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                ),
+              );
             }
           },
         ),
