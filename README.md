@@ -1,2 +1,2 @@
-# SMAQ
-
+Hello everyone, my name is Adam Darmawansa
+I'm a student of Statepolytechnique Jember, im a computer engineering student, i have a dream to become a junior programmer but actually i just wanna be a rich man i do whatever it takes to fulfill my dream, so this is my journey to be a profesional programmer, and this is my first project for a exam in third semester, so it connected to an iot especially iot for monitoring an aquarium, so if you want to make an iot that connected to an app so you cn use my project as an inspiration for project, i'm still a junior programmer and i this is my first project and i made it alone so im so sorry if my code are not coded in efficient way so use it what ever you want. Thank's for reading this README.
