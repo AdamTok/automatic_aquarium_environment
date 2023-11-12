@@ -15,11 +15,8 @@ class MonitorPage extends StatefulWidget {
 class _MonitorPageState extends State<MonitorPage> {
   final user = FirebaseAuth.instance.currentUser!;
   late DatabaseReference _dbref;
-  String databasejson = '';
   bool isButtonPressedLED = false;
   bool isButtonPressedServo = false;
-  bool ledStatus = false;
-  bool servoStatus = false;
 
   @override
   void initState() {
@@ -52,10 +49,8 @@ class _MonitorPageState extends State<MonitorPage> {
       isButtonPressedLED = !isButtonPressedLED;
       if (isButtonPressedLED) {
         ledOn(); // Panggil fungsi untuk menyalakan LED
-        ledStatus = true;
       } else {
         ledOff(); // Panggil fungsi untuk mematikan LED
-        ledStatus = false;
       }
     });
   }
@@ -65,10 +60,8 @@ class _MonitorPageState extends State<MonitorPage> {
       isButtonPressedServo = !isButtonPressedServo;
       if (isButtonPressedServo) {
         servoOn(); // Panggil fungsi untuk menyalakan LED
-        servoStatus = true;
       } else {
         servoOff(); // Panggil fungsi untuk mematikan LED
-        servoStatus = false;
       }
     });
   }
@@ -403,7 +396,7 @@ class _MonitorPageState extends State<MonitorPage> {
                 ),
               );
             }
-          },
+          }
         ),
       ),
     );
