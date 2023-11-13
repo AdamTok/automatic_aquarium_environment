@@ -186,8 +186,8 @@ class _LoginPageState extends State<LoginPage> {
                               vertical: 10,
                             ),
                             backgroundColor:
-                                const Color.fromARGB(255, 40, 108, 126),
-                            shadowColor: const Color.fromARGB(255, 18, 66, 78),
+                                const Color.fromARGB(255, 39, 80, 114),
+                            shadowColor: const Color.fromARGB(255, 9, 32, 38),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(6),
                             ),
