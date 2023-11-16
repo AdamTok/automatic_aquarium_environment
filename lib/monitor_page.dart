@@ -5,8 +5,7 @@ import 'package:slide_digital_clock/slide_digital_clock.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class MonitorPage extends StatefulWidget {
-  MonitorPage({Key? key}) : super(key: key);
-  final user = FirebaseAuth.instance.currentUser!;
+  const MonitorPage({Key? key}) : super(key: key);
 
   @override
   State<MonitorPage> createState() => _MonitorPageState();
@@ -28,41 +27,45 @@ class _MonitorPageState extends State<MonitorPage> {
     FirebaseAuth.instance.signOut();
   }
 
-  void ledOn() async {
-    await _dbref.child("TAIoT").update({'LED': 'on'});
-  }
-
-  void ledOff() async {
-    await _dbref.child("TAIoT").update({'LED': 'off'});
-  }
-
-  void servoOn() async {
-    await _dbref.child("TAIoT").update({'Servo': 'on'});
-  }
-
-  void servoOff() async {
-    await _dbref.child("TAIoT").update({'Servo': 'off'});
-  }
-
-  void pressedButtonLED() {
-    setState(() {
-      isButtonPressedLED = !isButtonPressedLED;
-      if (isButtonPressedLED) {
-        ledOn(); // Panggil fungsi untuk menyalakan LED
-      } else {
-        ledOff(); // Panggil fungsi untuk mematikan LED
-      }
+  void toggleLED() {
+    _dbref
+        .child("TAIoT")
+        .child("LED")
+        .once()
+        .then((DatabaseEvent databaseEvent) {
+      setState(() {
+        var currentStatusLED = databaseEvent.snapshot.value.toString();
+        if (currentStatusLED == "off") {
+          _dbref.child("TAIoT").update({'LED': 'on'});
+          isButtonPressedLED = true;
+          isButtonPressedServo = false;
+        } else {
+          _dbref.child("TAIoT").update({'LED': 'off'});
+          isButtonPressedLED = false;
+          isButtonPressedServo = false;
+        }
+      });
     });
   }
 
-  void pressedButtonServo() {
-    setState(() {
-      isButtonPressedServo = !isButtonPressedServo;
-      if (isButtonPressedServo) {
-        servoOn(); // Panggil fungsi untuk menyalakan LED
-      } else {
-        servoOff(); // Panggil fungsi untuk mematikan LED
-      }
+  void toggleServo() {
+    _dbref
+        .child("TAIoT")
+        .child("Servo")
+        .once()
+        .then((DatabaseEvent databaseEvent) {
+      setState(() {
+        var currentStatusServo = databaseEvent.snapshot.value.toString();
+        if (currentStatusServo == "off") {
+          _dbref.child("TAIoT").update({'Servo': 'on'});
+          isButtonPressedServo = true;
+          isButtonPressedLED = false;
+        } else {
+          _dbref.child("TAIoT").update({'Servo': 'off'});
+          isButtonPressedServo = false;
+          isButtonPressedLED = false;
+        }
+      });
     });
   }
 
@@ -88,6 +91,35 @@ class _MonitorPageState extends State<MonitorPage> {
                 data.forEach(
                   (index, data) => item.add({"key": index, ...data}),
                 );
+                _dbref
+                    .child("TAIoT")
+                    .child("LED")
+                    .once()
+                    .then((DatabaseEvent databaseEvent) {
+                  setState(() {
+                    var isNowLED = databaseEvent.snapshot.value.toString();
+                    if (isNowLED == "on") {
+                      isButtonPressedLED = true;
+                    } else {
+                      isButtonPressedLED = false;
+                    }
+                  });
+                });
+                _dbref
+                    .child("TAIoT")
+                    .child("Servo")
+                    .once()
+                    .then((DatabaseEvent databaseEvent) {
+                  setState(() {
+                    var isNowServo = databaseEvent.snapshot.value.toString();
+                    if (isNowServo == "on") {
+                      isButtonPressedServo = true;
+                    } else {
+                      isButtonPressedServo = false;
+                    }
+                  });
+                });
+
                 return ListView.builder(
                   itemCount: item.length,
                   itemBuilder: (context, index) {
@@ -135,7 +167,7 @@ class _MonitorPageState extends State<MonitorPage> {
                                 width: 40,
                               ),
                               Container(
-                                height: 33,
+                                height: 40,
                                 width: 90,
                                 decoration: BoxDecoration(
                                   color: const Color.fromARGB(255, 255, 255,
@@ -260,7 +292,7 @@ class _MonitorPageState extends State<MonitorPage> {
                                 height: 20,
                               ),
                               GestureDetector(
-                                onTap: pressedButtonServo,
+                                onTap: toggleServo,
                                 child: AnimatedContainer(
                                   duration: const Duration(milliseconds: 200),
                                   height: 40,
@@ -317,7 +349,7 @@ class _MonitorPageState extends State<MonitorPage> {
                                 height: 20,
                               ),
                               GestureDetector(
-                                onTap: pressedButtonLED,
+                                onTap: toggleLED,
                                 child: AnimatedContainer(
                                   duration: const Duration(milliseconds: 200),
                                   height: 180,
