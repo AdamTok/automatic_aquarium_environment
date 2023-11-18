@@ -217,50 +217,51 @@ class _MonitorPageState extends State<MonitorPage> {
                             width: 35,
                           ),
                           Container(
-                            height: 450,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 255, 255,
-                                  255), // Warna latar belakang abu-abu
-                              borderRadius: BorderRadius.circular(
-                                  20), // Mengatur sudut kotak
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Color.fromARGB(255, 142, 142, 142),
-                                  offset: Offset(2, 3),
-                                  blurRadius: 3, // Bayangan
-                                ),
-                              ],
-                            ),
-                            padding: const EdgeInsets.only(
-                                right: 10, left: 15, bottom: 35, top: 20),
-                            child: AspectRatio(
-                              aspectRatio: 1 / 1,
-                              child: DChartBarCustom(
-                                showDomainLabel: true,
-                                spaceBetweenItem: 10,
-                                radiusBar:
-                                    const BorderRadius.all(Radius.circular(20)),
-                                max: 100,
-                                spaceDomainLabeltoChart: 10,
-                                valueAlign: Alignment.center,
-                                listData: List.generate(item.length, (index) {
-                                  Map dataItem = item[index];
-                                  return DChartBarDataCustom(
-                                    value: dataItem['Suhu'].toDouble(),
-                                    // label: dataItem['Timestamp'],
-                                    label: '${dataItem['Suhu']} °C',
-                                    color: dataItem['Suhu'] >= 30
-                                        ? Colors.red
-                                        : (dataItem['Suhu'] <= 20
-                                            ? Colors.blue
-                                            : Colors.green),
-                                    // splashColor: Colors.red
-                                  );
-                                }),
+                              height: 450,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 255, 255,
+                                    255), // Warna latar belakang abu-abu
+                                borderRadius: BorderRadius.circular(
+                                    20), // Mengatur sudut kotak
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Color.fromARGB(255, 142, 142, 142),
+                                    offset: Offset(2, 3),
+                                    blurRadius: 3, // Bayangan
+                                  ),
+                                ],
                               ),
-                            ),
-                          ),
+                              padding: const EdgeInsets.only(
+                                  right: 10, left: 15, bottom: 35, top: 20),
+                              child: AspectRatio(
+                                aspectRatio: 1 / 1,
+                                child: DChartBarCustom(
+                                  showDomainLabel: true,
+                                  spaceBetweenItem: 10,
+                                  radiusBar: const BorderRadius.all(
+                                      Radius.circular(20)),
+                                  max: 100,
+                                  spaceDomainLabeltoChart: 10,
+                                  valueAlign: Alignment.center,
+                                  listData: List.generate(item.length, (index) {
+                                    Map dataItem = item[index];
+                                    double suhu = dataItem['Suhu'].toDouble();
+                                    String formattedSuhu = suhu.toStringAsFixed(
+                                        2); // Menggunakan 2 digit desimal
+                                    return DChartBarDataCustom(
+                                      value: double.parse(
+                                          formattedSuhu), // Konversi kembali ke double jika diperlukan
+                                      label: '$formattedSuhu °C',
+                                      color: suhu >= 30.00
+                                          ? Colors.red
+                                          : (suhu <= 20.00
+                                              ? Colors.blue
+                                              : Colors.green),
+                                    );
+                                  }),
+                                ),
+                              )),
                           const SizedBox(
                             width: 45,
                           ),
